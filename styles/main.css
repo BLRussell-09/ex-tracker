@@ -12,13 +12,22 @@ body {
 
 .locationCard {
   background-color: white;
+  height: 440px;
+  text-align: center;
+  margin-top: 1em;
 }
 
 .exCard {
+  margin-top: 1em;
   background-color: darkgray;
 }
 
 img {
   width: 200px;
   height: 200px;
+  margin-bottom: 1em;
+}
+
+input#searchBar {
+  width: 50%;
 }
