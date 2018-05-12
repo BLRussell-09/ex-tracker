@@ -1,0 +1,28 @@
+{
+  "locations": [
+    {
+      "name": "Boltons",
+      "location": "624 Main St, Nashville, TN 37206",
+      "time": "morning",
+      "img" : "https://irp-cdn.multiscreensite.com/61229485/dms3rep/multi/desktop/Boltons%20Logo_raia2cTeS0O4jvMbzvDG-784x429.png"
+    },
+    {
+      "name": "Cool Cafe",
+      "location": "1110 Hillsboro Rd B200, Franklin, TN 37064",
+      "time": "afternoon",
+      "img" : "http://coolcafefranklin.com/images/cc-best-logo32016.jpg?crc=181452883"
+    },
+    {
+      "name": "Hattie B's",
+      "location": "5209 Charlotte Pike, Nashville, TN 37209",
+      "time": "night",
+      "img" : "https://pbs.twimg.com/profile_images/468562060255956992/xLA3mhA9.jpeg"
+    },
+    {
+      "name": "Prince's Hot Chicken Shack",
+      "location": "123 Ewing Dr, Nashville, TN 37207",
+      "time": "afterdark",
+      "img" : "http://princeshotchicken.com/wp-content/themes/princes/img/princes-hot-chicken-logo.png"
+    }
+  ]
+}
