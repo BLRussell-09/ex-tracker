@@ -1,0 +1,24 @@
+body {
+  background-color: darkslateblue;
+}
+
+#locationHolder {
+  margin-top: 1em;
+}
+
+#exRow {
+  margin-bottom: 1em;
+}
+
+.locationCard {
+  background-color: white;
+}
+
+.exCard {
+  background-color: darkgray;
+}
+
+img {
+  width: 200px;
+  height: 200px;
+}
