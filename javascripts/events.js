@@ -1,5 +1,12 @@
 const domBuilder = require('./domBuilder');
 const getSet = require('./getSet');
+const singleEx = require('./singleEx');
+const myData = require('./data');
+
+const initShowAll = () =>
+{
+  $('.exbutton').click(myData.exPromise);
+};
 
 const initButtons = () =>
 {
@@ -9,6 +16,39 @@ const initButtons = () =>
   $('button#evening').click(evening);
   $('button#afterdark').click(afterDark);
   $('#searchBar').keypress(search);
+  $('#button25').click((e) =>
+  {
+    const myResults = [];
+    singleEx.singleEx().then((results) =>
+    {
+      myResults.push(results);
+      console.log(myResults);
+      $('#exHolder').html(domBuilder.exBuilder2(myResults));
+      initShowAll();
+    });
+  });
+  $('#button22').click((e) =>
+  {
+    const myResults = [];
+    singleEx.singleEx2().then((results) =>
+    {
+      myResults.push(results);
+      console.log(myResults);
+      $('#exHolder').html(domBuilder.exBuilder2(myResults));
+      initShowAll();
+    });
+  });
+  $('#button27').click((e) =>
+  {
+    const myResults = [];
+    singleEx.singleEx3().then((results) =>
+    {
+      myResults.push(results);
+      console.log(myResults);
+      $('#exHolder').html(domBuilder.exBuilder2(myResults));
+      initShowAll();
+    });
+  });
 };
 
 const morning = () =>
