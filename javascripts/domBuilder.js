@@ -10,7 +10,6 @@ const domBuilder = (dataArr, exArray) =>
     exArray.forEach(ex => {
       ex.locations.forEach(location => {
         if (location === element.locationId) {
-          console.log(ex.name);
           domString += `<p>${ex.name}</p>`;
         }
       });
@@ -19,6 +18,21 @@ const domBuilder = (dataArr, exArray) =>
     domString += `</div>`;
   });
   return domString;
+};
+
+const locationBuilder = (dataArr) =>
+{
+  let domString = '';
+  dataArr.forEach(element => {
+    domString += `<div class="col-md-3">`;
+    domString += `<div class="col-md-12 locationCard">`;
+    domString += `<h2>${element.name}</h2>`;
+    domString += `<img src="${element.img}">`;
+    domString += `<p>${element.location}</p>`;
+    domString += `</div>`;
+    domString += `</div>`;
+  });
+  $('#locationHolder').html(domString);
 };
 
 const domBuilderMorn = (dataArr) =>
@@ -95,6 +109,7 @@ const domBuilderDrk = (dataArr) =>
 
 const exBuilder = (dataArr) =>
 {
+
   let domString = '';
   dataArr.forEach(element => {
     domString += `<div class="col-md-4 exCard">`;
@@ -102,7 +117,25 @@ const exBuilder = (dataArr) =>
     domString += `<img src="${element.img}">`;
     domString += `<p>${element.age}</p>`;
     domString += `<p>${element.flaws}</p>`;
+    domString += `<button class="exbutton btn-danger" id="button${element.age}">Just Me!</button>`;
     domString += `</div>`;
+  });
+  return domString;
+};
+
+const exBuilder2 = (dataArr) =>
+{
+
+  let domString = '';
+  dataArr.forEach(element => {
+    domString += `<div class="col-md-4 exCard">`;
+    domString += `<h2>${element.name}</h2>`;
+    domString += `<img src="${element.img}">`;
+    domString += `<p>${element.age}</p>`;
+    domString += `<p>${element.flaws}</p>`;
+    domString += `<button class="exbutton btn-danger" id="button${element.age}">All Ex's</button>`;
+    domString += `</div>`;
+    locationBuilder(element.places);
   });
   return domString;
 };
@@ -115,4 +148,5 @@ module.exports =
   domBuilderAft,
   domBuilderEve,
   domBuilderDrk,
+  exBuilder2,
 };

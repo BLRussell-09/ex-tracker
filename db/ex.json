@@ -9,14 +9,14 @@
     },
     {
       "name": "Chia Pet",
-      "age": 25,
+      "age": 22,
       "flaws": "Chews with mouth open, Active gold miner",
       "img": "https://pilchardrabies.files.wordpress.com/2013/04/fat-ape.jpg",
       "locations": [4,5,6,11,14]
     },
     {
       "name": "Flounder",
-      "age": 25,
+      "age": 27,
       "flaws": "Chews with mouth open, Active gold miner",
       "img": "https://pilchardrabies.files.wordpress.com/2013/04/fat-ape.jpg",
       "locations": [7,8,9,12]

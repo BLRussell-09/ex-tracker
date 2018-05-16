@@ -30,25 +30,12 @@ const exPromise = () =>
   return exData;
 };
 
-const allData = () =>
-{
-  // const locations = {};
-  return Promise.all([ajax.exesJson(), ajax.locationJSON(),]).then((results) =>
-  {
-    console.log(results);
-    const myData = [...results[0], ...results[1],];
-    console.log(myData);
-    return Promise.resolve(myData);
-  }).catch((error) =>
-  {
-    console.error(error);
-  });
-};
-
 const init = () =>
 {
   exPromise();
-  allData();
 };
 
-module.exports = init;
+module.exports = {
+  init,
+  exPromise,
+};

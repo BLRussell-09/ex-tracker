@@ -1,3 +1,3 @@
-const init = require('./data');
+const data = require('./data');
 
-init();
+data.init();
