@@ -1,16 +1,18 @@
 const domBuilder = require('./domBuilder');
 const getSet = require('./getSet');
 const singleEx = require('./singleEx');
-const myData = require('./data');
+const resetPage = require('./resetPage');
+// const data = require('./data')
 
 const initShowAll = () =>
 {
-  $('.exbutton').click(myData.exPromise);
+  resetPage;
+  console.log('ok');
 };
 
 const initButtons = () =>
 {
-  $(document).ready();
+  $('button#reset').click(initShowAll);
   $('button#morning').click(morning);
   $('button#afternoon').click(afternoon);
   $('button#evening').click(evening);
@@ -22,7 +24,6 @@ const initButtons = () =>
     singleEx.singleEx().then((results) =>
     {
       myResults.push(results);
-      console.log(myResults);
       $('#exHolder').html(domBuilder.exBuilder2(myResults));
       initShowAll();
     });
@@ -33,7 +34,6 @@ const initButtons = () =>
     singleEx.singleEx2().then((results) =>
     {
       myResults.push(results);
-      console.log(myResults);
       $('#exHolder').html(domBuilder.exBuilder2(myResults));
       initShowAll();
     });
@@ -44,7 +44,6 @@ const initButtons = () =>
     singleEx.singleEx3().then((results) =>
     {
       myResults.push(results);
-      console.log(myResults);
       $('#exHolder').html(domBuilder.exBuilder2(myResults));
       initShowAll();
     });
