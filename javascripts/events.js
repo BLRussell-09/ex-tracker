@@ -32,8 +32,8 @@ const afterDark = () =>
 };
 
 const search = (e) => {
-  if (e.keyCode === 13) {
-    console.log('hoi');
+  if (e.keyCode === 13)
+  {
     const userInput = $(e.target).val();
     $(`#locationHolder .locationCard:not(:contains(${userInput}))`).hide();
     $(e.target).val('');

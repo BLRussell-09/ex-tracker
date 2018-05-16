@@ -2,7 +2,7 @@ let locArr = [];
 
 const getLocations = () =>
 {
-  return locArr.locations;
+  return locArr;
 };
 
 const setLocations = (locations) =>
