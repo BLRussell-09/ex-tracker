@@ -1,4 +1,7 @@
 const ajax = require('./ajax');
+const domBuilder = require('./domBuilder');
+const getSet = require('./getSet');
+const events = require('./events');
 
 const singleEx = () =>
 {
@@ -84,8 +87,24 @@ const singleEx3 = () =>
   });
 };
 
+const init = () =>
+{
+  const exData = ajax.exesJson().then((result) =>
+  {
+    $('#exHolder').html(domBuilder.exBuilder(result));
+    ajax.locationJSON().then((locations) =>
+    {
+      $('#locationHolder').html(domBuilder.domBuilder(locations, result));
+      getSet.setLocations(locations);
+    });
+  });
+  events;
+  return exData;
+};
+
 module.exports = {
   singleEx,
   singleEx2,
   singleEx3,
+  init,
 };
