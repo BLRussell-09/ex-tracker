@@ -1,4 +1,4 @@
-const domBuilder = (dataArr) =>
+const domBuilder = (dataArr, exArray) =>
 {
   let domString = '';
   dataArr.forEach(element => {
@@ -7,6 +7,14 @@ const domBuilder = (dataArr) =>
     domString += `<h2>${element.name}</h2>`;
     domString += `<img src="${element.img}">`;
     domString += `<p>${element.location}</p>`;
+    exArray.forEach(ex => {
+      ex.locations.forEach(location => {
+        if (location === element.locationId) {
+          console.log(ex.name);
+          domString += `<p>${ex.name}</p>`;
+        }
+      });
+    });
     domString += `</div>`;
     domString += `</div>`;
   });
@@ -88,12 +96,14 @@ const domBuilderDrk = (dataArr) =>
 const exBuilder = (dataArr) =>
 {
   let domString = '';
-  domString += `<div class="col-md-6 col-md-offset-3 exCard">`;
-  domString += `<h2>${dataArr.name}</h2>`;
-  domString += `<img src="${dataArr.img}">`;
-  domString += `<p>${dataArr.age}</p>`;
-  domString += `<p>${dataArr.flaws}</p>`;
-  domString += `</div>`;
+  dataArr.forEach(element => {
+    domString += `<div class="col-md-4 exCard">`;
+    domString += `<h2>${element.name}</h2>`;
+    domString += `<img src="${element.img}">`;
+    domString += `<p>${element.age}</p>`;
+    domString += `<p>${element.flaws}</p>`;
+    domString += `</div>`;
+  });
   return domString;
 };
 

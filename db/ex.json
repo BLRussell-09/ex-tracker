@@ -1,6 +1,25 @@
 {
-  "name": "Walker Texas Ranger",
-  "age": 25,
-  "flaws": "Chews with mouth open, Active gold miner",
-  "img": "https://pilchardrabies.files.wordpress.com/2013/04/fat-ape.jpg"
+  "exes": [
+    {
+    "name": "Walker Texas Ranger",
+    "age": 25,
+    "flaws": "Chews with mouth open, Active gold miner",
+    "img": "https://pilchardrabies.files.wordpress.com/2013/04/fat-ape.jpg",
+    "locations": [1,2,3,10,13]
+    },
+    {
+      "name": "Chia Pet",
+      "age": 25,
+      "flaws": "Chews with mouth open, Active gold miner",
+      "img": "https://pilchardrabies.files.wordpress.com/2013/04/fat-ape.jpg",
+      "locations": [4,5,6,11,14]
+    },
+    {
+      "name": "Flounder",
+      "age": 25,
+      "flaws": "Chews with mouth open, Active gold miner",
+      "img": "https://pilchardrabies.files.wordpress.com/2013/04/fat-ape.jpg",
+      "locations": [7,8,9,12]
+    }
+  ]
 }
