@@ -14,7 +14,7 @@ const singleEx = () =>
     return ajax.locationJSON().then((locations) =>
     {
       const allLocations = locations;
-      const matches = allLocations.filter((location) =>
+      allLocations.filter((location) =>
       {
         ex.locations.forEach(element =>
         {
@@ -23,9 +23,7 @@ const singleEx = () =>
             ex.places.push(location);
           };
         });
-        return false;
       });
-      console.log(matches);
       return Promise.resolve(ex);
     });
   });

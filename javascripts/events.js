@@ -1,13 +1,18 @@
 const domBuilder = require('./domBuilder');
 const getSet = require('./getSet');
 const singleEx = require('./singleEx');
-const resetPage = require('./resetPage');
-// const data = require('./data')
+const ajax = require('./ajax');
 
 const initShowAll = () =>
 {
-  resetPage;
-  console.log('ok');
+  reLoad();
+};
+
+const initExButtons = () =>
+{
+  $('#button25').click(click25);
+  $('#button22').click(click22);
+  $('#button27').click(click27);
 };
 
 const initButtons = () =>
@@ -18,35 +23,39 @@ const initButtons = () =>
   $('button#evening').click(evening);
   $('button#afterdark').click(afterDark);
   $('#searchBar').keypress(search);
-  $('#button25').click((e) =>
+  $('#button25').click(click25);
+  $('#button22').click(click22);
+  $('#button27').click(click27);
+};
+
+const click25 = () =>
+{
+  const myResults = [];
+  singleEx.singleEx().then((results) =>
   {
-    const myResults = [];
-    singleEx.singleEx().then((results) =>
-    {
-      myResults.push(results);
-      $('#exHolder').html(domBuilder.exBuilder2(myResults));
-      initShowAll();
-    });
+    myResults.push(results);
+    $('#exHolder').html(domBuilder.exBuilder2(myResults));
+
   });
-  $('#button22').click((e) =>
+};
+
+const click22 = () =>
+{
+  const myResults = [];
+  singleEx.singleEx2().then((results) =>
   {
-    const myResults = [];
-    singleEx.singleEx2().then((results) =>
-    {
-      myResults.push(results);
-      $('#exHolder').html(domBuilder.exBuilder2(myResults));
-      initShowAll();
-    });
+    myResults.push(results);
+    $('#exHolder').html(domBuilder.exBuilder2(myResults));
   });
-  $('#button27').click((e) =>
+};
+
+const click27 = () =>
+{
+  const myResults = [];
+  singleEx.singleEx3().then((results) =>
   {
-    const myResults = [];
-    singleEx.singleEx3().then((results) =>
-    {
-      myResults.push(results);
-      $('#exHolder').html(domBuilder.exBuilder2(myResults));
-      initShowAll();
-    });
+    myResults.push(results);
+    $('#exHolder').html(domBuilder.exBuilder2(myResults));
   });
 };
 
@@ -77,6 +86,20 @@ const search = (e) => {
     $(`#locationHolder .locationCard:not(:contains(${userInput}))`).hide();
     $(e.target).val('');
   };
+};
+
+const reLoad = () =>
+{
+  const loadPage = ajax.exesJson().then((result) =>
+  {
+    $('#exHolder').html(domBuilder.exBuilder(result));
+    ajax.locationJSON().then((location) =>
+    {
+      $('#locationHolder').html(domBuilder.domBuilder(location, result));
+      initExButtons();
+    });
+  });
+  return loadPage;
 };
 
 module.exports = initButtons;
