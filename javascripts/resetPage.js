@@ -1,26 +1,24 @@
 const ajax = require('./ajax');
 const domBuilder = require('./domBuilder');
-const events = require('./events');
-const getSet = require('./getSet');
+// const events = require('./events');
+// const getSet = require('./getSet');
 
-const exPromise = () =>
+const reLoad = () =>
 {
-  const exData = ajax.exesJson().then((result) =>
+  const loadPage = ajax.exesJson().then((result) =>
   {
-    $('#exHolder').append(domBuilder.exBuilder(result));
-    ajax.locationJSON().then((locations) =>
+    $('#exHolder').html(domBuilder.exBuilder(result));
+    ajax.locationJSON().then((location) =>
     {
-      $('#locationHolder').append(domBuilder.domBuilder(locations, result));
-      events();
-      getSet.setLocations(locations);
+      $('#locationHolder').html(domBuilder.domBuilder(location, result));
     });
   });
-  return exData;
+  return loadPage;
 };
 
 const init = () =>
 {
-  exPromise();
+  reLoad();
 };
 
 module.exports = init;
